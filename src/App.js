@@ -19,6 +19,17 @@ const templates = {
 };
 
 function App() {
+  navigator.userAgentData
+  .getHighEntropyValues([
+    "architecture",
+    "model",
+    "platform",
+    "platformVersion",
+    "fullVersionList",
+  ])
+  .then((ua) => {
+    alert(ua.model);
+  });
   const [selectedTemplate, setSelectedTemplate] = useState("blog");
   const [layout, setLayout] = useState(templates[selectedTemplate]);
 
